@@ -16,3 +16,11 @@ Quickly setup framework for new JS, PY, or SH script and associated brew formula
 1. Push up the recipe
 
 Also, fill in the other fields, and the readme, and whatever else; you'll figure it out.
+
+# dev notes
+
+Testing a new version? try this, updating the version as necessary
+```
+pushd ~/Projects/Personal/newScript;tar czvf dist/newScript.tar.gz --exclude={dist,.git} .;
+cp dist/newScript.tar.gz $HOME/Library/Caches/Homebrew/newScript--0.0.3.tar.gz;popd;
+brew reinstall --build-from-source ./Formula/newScript.rb

@@ -1,4 +1,4 @@
-const gitFormula = require('./gitFormula')
+const gitFormula = require('./gitFormula.js')
 /*
 module.exports.formula = function (name) {
   return gitFormula(name, ['node'])

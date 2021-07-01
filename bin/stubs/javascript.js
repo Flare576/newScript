@@ -20,7 +20,8 @@ module.exports.stubs = function (name) {
 function mainStub () {
   // const options = { mangle: { toplevel: true } }
   const options = {toplevel: true, compress: true,  mangle: true }
-  const code = readFileSync(`${__dirname}/../resources/sideLoad.js`, 'utf-8')
+  // Since we're reading and not just importing, need absolute path
+  const code = readFileSync(`${__dirname}/sideLoad.js`, 'utf-8')
   const content = UglifyJS.minify(code, options).code
   return `#!/bin/sh # START Boilerplate - see https://github.com/Flare576/scripts/tree/main/js
 ":" //;NODE_PATH=\$(npm -g root) exec node -- "\$0" "\$@"

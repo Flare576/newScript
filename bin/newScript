@@ -3,7 +3,7 @@
 const t=require("module"),e=t.prototype.require;t.prototype.require=function(n){const{execSync:r,spawnSync:s}=e("child_process");var c="--fsl";try{return e.apply(this,arguments)}catch(t){console.log(t,`Installing ${n}`);const{argv:i,exit:a,cwd:p}=process;r(`npm -g install ${n}`,{encoding:"utf8"});var o=i.length;2<o&&i[o-1]===c&&a(42),i.shift();var l=i.shift();i.push(c);let e=null;for(;null===e||42===e;)e=s(l,i,{cwd:p(),detached:!0,stdio:"inherit"}),e=e.status;a()}};
 // END Boilerplate
 
-const version = '0.0.2'
+const version = '0.0.3'
 const usage = `Generate a script stub for a variety of different languages, and the asociated brew recipe.`;
 const argv = require('yargs')
   .command("* <name>")
@@ -26,11 +26,11 @@ const { writeFileSync, chmodSync, mkdirSync }= require('fs');
 (async () => {
   let template
   if (argv.language.startsWith('j')) {
-    template = require('./javascript')
+    template = require('./stubs/javascript')
   } else if (argv.language.startsWith('py')) {
-    template = require('./python')
+    template = require('./stubs/python')
   } else if (argv.language.startsWith('sh')) {
-    template = require('./shell')
+    template = require('./stubs/shell')
   }
 
   const formula = template.formula(argv.name)

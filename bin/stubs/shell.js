@@ -9,6 +9,19 @@ module.exports.stubs = function (name) {
   return {
     folders: [ 'bin' ],
     files: [{
+      fileName: 'README.md',
+      content: `# ${name}
+
+Description goes here
+
+## Installation
+
+${name} is a bash script, so putting it anywhere in your $PATH is all you really need to do!
+
+You can also do \`brew install flare576/scripts/monitorjobs\`
+
+## Setup`,
+    },{
       fileName: `bin/${name}`,
       exec: true,
       content: `#/bin/sh

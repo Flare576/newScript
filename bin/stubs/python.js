@@ -47,6 +47,9 @@ module.exports.stubs = function (name) {
     },{
       fileName: 'setup.cfg',
       content: setup(name),
+    },{
+      fileName: `README.md`,
+      content: readmeSetup(name),
     }],
   }
 }
@@ -90,6 +93,20 @@ requires = [
 build-backend = "setuptools.build_meta"
 `
 }
+
+function readmeSetup (name) {
+  return `# ${name}
+
+Description goes here
+
+## Installation
+
+```
+  brew install flare576/scripts/gac
+```
+## Usage`
+}
+
 function mainStub (name) {
   return `#!/usr/local/bin/thon3
 from argparse import ArgumentParser

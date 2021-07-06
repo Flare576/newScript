@@ -13,8 +13,25 @@ module.exports.stubs = function (name) {
       fileName: `bin/${name}`,
       exec: true,
       content: mainStub(),
+    },{
+      fileName: `README.md`,
+      content: readmeSetup(name),
     }]
   }
+}
+
+function readmeSetup (name) {
+  return `# ${name}
+
+Description goes here
+
+## Installation
+
+```
+  brew install flare576/scripts/gac
+```
+
+## Usage`
 }
 
 function mainStub () {

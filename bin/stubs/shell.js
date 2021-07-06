@@ -18,7 +18,7 @@ Description goes here
 
 ${name} is a bash script, so putting it anywhere in your $PATH is all you really need to do!
 
-You can also do \`brew install flare576/scripts/monitorjobs\`
+You can also do \`brew install flare576/scripts/${name}\`
 
 ## Setup`,
     },{

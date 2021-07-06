@@ -101,14 +101,27 @@ Description goes here
 
 ## Installation
 
-```
-  brew install flare576/scripts/gac
-```
-## Usage`
+\`\`\`
+  brew install flare576/scripts/${name}
+\`\`\`
+
+## Usage
+
+## Deploy Instructions
+
+\`\`\`
+# Update version in VERSION.py
+rm -rf dist
+pip3 uninstall -y ${name}
+python3 -m build
+pip3 install dist/${name}-*.tar.gz
+${name} -v && python3 -m twine upload dist/*
+\`\`\`
+`
 }
 
 function mainStub (name) {
-  return `#!/usr/local/bin/thon3
+  return `#!/usr/local/bin/python3
 from argparse import ArgumentParser
 from VERSION import __version__
 cmd_main_desc = 'Description of script'

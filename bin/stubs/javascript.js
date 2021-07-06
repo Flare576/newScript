@@ -27,9 +27,9 @@ Description goes here
 
 ## Installation
 
-```
-  brew install flare576/scripts/gac
-```
+\`\`\`
+  brew install flare576/scripts/${name}
+\`\`\`
 
 ## Usage`
 }

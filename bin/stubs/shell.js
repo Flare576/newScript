@@ -24,8 +24,8 @@ You can also do \`brew install flare576/scripts/${name}\`
     },{
       fileName: `bin/${name}`,
       exec: true,
-      content: `#/bin/sh
-version=11.0.0
+      content: `#!/bin/sh
+version=0.0.1
 usage="$(basename "$0") [-letrs] [targets]
 Basic Description"
 
@@ -39,10 +39,10 @@ while getopts ':hletr:s' option; do
     e) echo 'e iz for exit'
       exit
       ;;
-    t) letterE="true"
+    t) letterT="true"
       exit
       ;;
-    r) letterT="$OPTARG"
+    r) letterR="$OPTARG"
       ;;
     l) logToFile="true"
       ;;

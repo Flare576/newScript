@@ -47,11 +47,13 @@ ${content} // END Boilerplate
 const version = '0.0.1'
 const usage = 'Hello World Stub'
 const argv = require('yargs')
-  .command("* [posOne]")
+  .usage('$0 <isReq> [notReq]', usage, (yargs) => {
+    yargs.positional('isReq', { describe: "required because angle" })
+    yargs.positional('notReq', { describe: "not required because square" })
+  })
   .version(version)
   .alias('version', 'v')
   .alias('help', 'h')
-  .usage(usage)
   .option('full', { alias: 'f', description: 'Example', type: 'string' })
 .argv;
 

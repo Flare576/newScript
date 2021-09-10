@@ -29,7 +29,7 @@ version=0.0.1
 usage="$(basename "$0") [-letrs] [targets]
 Basic Description"
 
-while getopts ':hletr:s' option; do
+while getopts ':vhletr:s' option; do
   case "$option" in
     h) echo "$usage"
       exit
@@ -47,6 +47,9 @@ while getopts ':hletr:s' option; do
     l) logToFile="true"
       ;;
     r) echo "you found the easter egg"
+      ;;
+    v) echo "version $version"
+      exit
       ;;
   esac
 done

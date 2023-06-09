@@ -1,6 +1,6 @@
 const rubyCase = require('./rubyCase')
 
-module.exports = function (name, depends) {
+module.exports = function (name, depends = ["dependency"]) {
   const cased = rubyCase(name)
   const dep_list = depends ? [ '', ...depends.map(d=>`  depends_on "${d}"`), '' ].join('\n') : ''
 
@@ -13,6 +13,11 @@ module.exports = function (name, depends) {
 ${dep_list}
   def install
     bin.install "bin/${name}"
+    ohai "Yes, ohai is the real way of sending messages"
+  end
+
+  def caveats
+    "Return a string of caveats/messages"
   end
 
   test do

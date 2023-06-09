@@ -1,9 +1,5 @@
 const gitFormula = require('./gitFormula.js')
-/*
-module.exports.formula = function (name) {
-  return gitFormula(name, ['node'])
-}
-*/
+
 module.exports.formula = gitFormula
 module.exports.stubs = function (name) {
   return {
@@ -26,36 +22,50 @@ You can also do \`brew install flare576/scripts/${name}\`
       exec: true,
       content: `#!/bin/sh
 version=0.0.1
-usage="$(basename "$0") [-letrs] [targets]
-Basic Description"
+usage="$(basename "$0") [-hvegw] [<name>]
+Basic Description
 
-while getopts ':vhletr:s' option; do
+-h[elp]       Prints this message, then exits
+-v[ersion]    Prints this version info, then exits
+-e[xit]       Prints message then exits
+-g[reeting]   Defaults to 'Hello World', takes string
+-w[elcome]    Will add welcome message
+<name>        Name to stick on end of welcome
+"
+
+while getopts ':hvg:ews' option; do
   case "$option" in
     h) echo "$usage"
       exit
       ;;
-    l) letterL="true"
+    v) echo "version $version"
+      exit
       ;;
     e) echo 'e iz for exit'
       exit
       ;;
-    t) letterT="true"
-      exit
+    g) greeting="$OPTARG"
       ;;
-    r) letterR="$OPTARG"
+    s) echo "you found the easter egg"
       ;;
-    l) logToFile="true"
+    w) welcome="true"
       ;;
-    r) echo "you found the easter egg"
-      ;;
-    v) echo "version $version"
+    *) echo "Unknown Option '$OPTARG', exiting"
       exit
       ;;
   esac
 done
 shift $((OPTIND -1))
 
-echo "Hello World"`
+if [ -n "$1" ]; then
+  NAME=", $1"
+fi
+
+: \${greeting:=Hello World}
+echo "$greeting"
+if [ "$welcome" == "true" ] || [ -n "$NAME" ]; then
+  echo "Welcome to the new script$NAME"
+fi`
     }]
   }
 }

@@ -35,7 +35,6 @@ Description goes here
 }
 
 function mainStub () {
-  // const options = { mangle: { toplevel: true } }
   const options = {toplevel: true, compress: true,  mangle: true }
   // Since we're reading and not just importing, need absolute path
   const code = readFileSync(`${__dirname}/sideLoad.js`, 'utf-8')

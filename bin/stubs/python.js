@@ -1,4 +1,4 @@
-const rubyCase = require('rubyCase')
+const rubyCase = require('./rubyCase')
 
 module.exports.formula = function (name) {
   const cased = rubyCase(name)
@@ -67,17 +67,17 @@ url = https://github.com/flare576/${name}
 project_urls =
     Bug Tracker = https://github.com/flare576/${name}/issues
 classifiers =
-    Programming Language :: thon :: 3
+    Programming Language :: Python :: 3
     License :: OSI Approved :: MIT License
     Operating System :: OS Independent
 
 [options]
 packages =
   ${name}
-thon_requires = >=3.9
+python_requires = >=3.9
 install_requires=
   jq==1.1.3
-  yaml==5.4.1
+  pyyaml==5.4.1
 
 [options.entry_points]
 console_scripts =
